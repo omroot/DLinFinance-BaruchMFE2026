@@ -14,7 +14,7 @@ This repository hosts the lecture material, notebooks, homework, and final proje
 
 Approximation power of deep versus shallow networks, the Universal Approximation Theorem, double descent and overparameterization, scaling laws, and the spectral view of trained weights.
 
-- **Slides.** Distributed in class; not tracked in this repository.
+- **Slides.** [`lecture_slides/week1/TheoreticalFoundation.pdf`](lecture_slides/week1/TheoreticalFoundation.pdf) — Theoretical Foundations of Deep Learning, Parts I–III (101 slides).
 - **Theory notebooks** in [`src/notebooks/theory/`](src/notebooks/theory/):
   - [approximation.ipynb](src/notebooks/theory/approximation.ipynb) — compositional functions and the depth advantage
   - [double_descent.ipynb](src/notebooks/theory/double_descent.ipynb) — the double descent risk curve
