@@ -35,8 +35,9 @@ Attention and the Transformer architecture, applied to financial time series, to
   - [Part III — Transformers for Tabular Data](lecture_slides/week2/Transformers_StructuredData_Part3.pdf) (42 slides)
   - [Part IV — Deep Learning Statistical Arbitrage](lecture_slides/week2/Transformers_StatArb_Part4.pdf) (45 slides)
 - **Statistical arbitrage.** Part IV follows Guijarro-Ordonez, Pelger & Zanotti, *Deep Learning Statistical Arbitrage*, as a sequence-model application. Replication code: [DeepLearningStatisticalArbitrage_PaperReplication](https://github.com/omroot/DeepLearningStatisticalArbitrage_PaperReplication).
+- **Notebook — tabular foundation models:** [`src/notebooks/transformer/tabpfn_tabular_foundation_models.ipynb`](src/notebooks/transformer/tabpfn_tabular_foundation_models.ipynb) — the companion to Part III. Runs TabPFN zero-shot on an S&P 500 cross-section against ElasticNet, Random Forest and XGBoost, sweeps the training-set size to locate the small-sample regime, hits TabPFN's row-count ceiling on purpose, and closes with a return-prediction control. Needs `tabpfn` (`pip install tabpfn`).
 
-The transformer illustration notebooks and the optional homework for this week will be published shortly.
+The remaining transformer illustration notebooks and the optional homework for this week will be published shortly.
 
 ## Course Roadmap
 
