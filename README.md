@@ -2,7 +2,7 @@
 
 This repository hosts the lecture material, notebooks, homework, and final project for the Baruch College MFE elective **Deep Learning in Finance (Fall 2026)**.
 
-**Material is published week by week.** Week 1 and the final project are available now; later weeks appear here as we reach them. See the [course roadmap](#course-roadmap) for what is coming.
+**Material is published week by week.** Weeks 1-2 and the final project are available now; later weeks appear here as we reach them. See the [course roadmap](#course-roadmap) for what is coming.
 
 ## Course Syllabus
 - Download the full syllabus from [`Syllabus/DeepLearningInFinance_Syllabus_BaruchMFE_Fall2026.pdf`](Syllabus/DeepLearningInFinance_Syllabus_BaruchMFE_Fall2026.pdf).
@@ -25,14 +25,25 @@ Approximation power of deep versus shallow networks, the Universal Approximation
 
 The theory notebooks import their helper functions from `src/dlf/theory/`, so run them from inside `src/notebooks/theory/` — each one adds the repository root to `sys.path` on its first cell. The homework notebooks are self-contained and need no course code.
 
+## Week 2 — Transformers
+
+Attention and the Transformer architecture, applied to financial time series, to tabular data, and to statistical arbitrage.
+
+- **Slides** in [`lecture_slides/week2/`](lecture_slides/week2/):
+  - [Part I — Attention & Transformers](lecture_slides/week2/Transformers_AttentionFoundations_Part1.pdf) (41 slides)
+  - [Part II — Transformers for Financial Time Series](lecture_slides/week2/Transformers_FinTSForecasting_Part2.pdf) (26 slides)
+  - [Part III — Transformers for Tabular Data](lecture_slides/week2/Transformers_StructuredData_Part3.pdf) (42 slides)
+  - [Part IV — Deep Learning Statistical Arbitrage](lecture_slides/week2/Transformers_StatArb_Part4.pdf) (45 slides)
+- **Statistical arbitrage.** Part IV follows Guijarro-Ordonez, Pelger & Zanotti, *Deep Learning Statistical Arbitrage*, as a sequence-model application. Replication code: [DeepLearningStatisticalArbitrage_PaperReplication](https://github.com/omroot/DeepLearningStatisticalArbitrage_PaperReplication).
+
+The transformer illustration notebooks and the optional homework for this week will be published shortly.
+
 ## Course Roadmap
 
-Published as the semester progresses:
+Remaining weeks, published as we reach them:
 
 | Week | Topic |
 |------|-------|
-| 1 | Theoretical Foundations and the Virtue of Complexity — **available now** |
-| 2 | Transformers, and deep learning statistical arbitrage |
 | 3 | Neural ODEs and neural point processes (neural Hawkes, jump SDEs) |
 | 4 | Generative Adversarial Networks, and deep learning in asset pricing |
 | 5 | Diffusion models and score-based generative models |
