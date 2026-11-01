@@ -134,3 +134,8 @@ Desktop.ini
 **/*solution*.ipynb
 **/*_solution_*.ipynb
 homeworks/week*/hw*_assignment_solution*.ipynb
+
+# Notebook working directories: dev cruft and training artefacts, not course material
+**/legacy/
+lightning_logs/
+darts_logs/
