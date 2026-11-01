@@ -40,7 +40,7 @@ Attention and the Transformer architecture, applied to financial time series, to
   - [auto_regressive_transformer_univariate_timeseries_forecasting.ipynb](src/notebooks/transformer/auto_regressive_transformer_univariate_timeseries_forecasting.ipynb) — the autoregressive variant
 - **Notebook — tabular foundation models:** [`src/notebooks/transformer/tabpfn_tabular_foundation_models.ipynb`](src/notebooks/transformer/tabpfn_tabular_foundation_models.ipynb) — the companion to Part III. Runs TabPFN zero-shot on an S&P 500 cross-section against ElasticNet, Random Forest and XGBoost, sweeps the training-set size to locate the small-sample regime, hits TabPFN's row-count ceiling on purpose, and closes with a return-prediction control. Needs `tabpfn` (`pip install tabpfn`).
 
-The optional homework for this week will be published shortly.
+- **Homework (optional).** Start with [`homeworks/week2/hw02.md`](homeworks/week2/hw02.md): an ablation study of three Transformer architectures for univariate forecasting, with the notebook alongside it.
 
 ## Course Roadmap
 
