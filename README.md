@@ -14,7 +14,7 @@ This repository hosts the lecture material, notebooks, homework, and final proje
 
 Approximation power of deep versus shallow networks, the Universal Approximation Theorem, double descent and overparameterization, scaling laws, and the spectral view of trained weights.
 
-- **Slides.** [`lecture_slides/week1/TheoreticalFoundation.pdf`](lecture_slides/week1/TheoreticalFoundation.pdf) — Theoretical Foundations of Deep Learning, Parts I–III (101 slides).
+- **Slides.** [`lecture_slides/week1/TheoreticalFoundation.pdf`](lecture_slides/week1/TheoreticalFoundation.pdf) — Theoretical Foundations of Deep Learning, Parts I–III (110 slides).
 - **Theory notebooks** in [`src/notebooks/theory/`](src/notebooks/theory/):
   - [approximation.ipynb](src/notebooks/theory/approximation.ipynb) — compositional functions and the depth advantage
   - [double_descent.ipynb](src/notebooks/theory/double_descent.ipynb) — the double descent risk curve
@@ -31,9 +31,9 @@ Attention and the Transformer architecture, applied to financial time series, to
 
 - **Slides** in [`lecture_slides/week2/`](lecture_slides/week2/):
   - [Part I — Attention & Transformers](lecture_slides/week2/Transformers_AttentionFoundations_Part1.pdf) (41 slides)
-  - [Part II — Transformers for Financial Time Series](lecture_slides/week2/Transformers_FinTSForecasting_Part2.pdf) (26 slides)
+  - [Part II — Transformers for Financial Time Series](lecture_slides/week2/Transformers_FinTSForecasting_Part2.pdf) (28 slides)
   - [Part III — Transformers for Tabular Data](lecture_slides/week2/Transformers_StructuredData_Part3.pdf) (42 slides)
-  - [Part IV — Deep Learning Statistical Arbitrage](lecture_slides/week2/Transformers_StatArb_Part4.pdf) (45 slides)
+  - [Part IV — Deep Learning Statistical Arbitrage](lecture_slides/week2/Transformers_StatArb_Part4.pdf) (46 slides)
 - **Statistical arbitrage.** Part IV follows Guijarro-Ordonez, Pelger & Zanotti, *Deep Learning Statistical Arbitrage*, as a sequence-model application. Replication code: [DeepLearningStatisticalArbitrage_PaperReplication](https://github.com/omroot/DeepLearningStatisticalArbitrage_PaperReplication).
 - **Notebooks — time-series forecasting** (Part II), both runnable against `src/dlf/`:
   - [transformer_univariate_timeseries_forecasting.ipynb](src/notebooks/transformer/transformer_univariate_timeseries_forecasting.ipynb) — encoder-decoder Transformer for univariate forecasting, step by step
