@@ -1,0 +1,346 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.45in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=red,urlcolor=red,citecolor=red]{hyperref}
+
+\setlist[itemize]{itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{itemsep=2pt,topsep=3pt}
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\paper}[2]{\href{#2}{\textcolor{red}{#1}}}
+
+\title{\textbf{Deep Learning in Finance}\\[4pt]
+       \large Assignment 1 --- Research Paper Presentation and Implementation}
+\author{Oualid Missaoui}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+
+Your first assignment is a \textbf{group presentation of a research paper},
+delivered in class, together with a \textbf{GitHub repository that implements
+the paper or a well-chosen segment of it}. This assignment is worth
+\textbf{40\%} of your course grade.
+
+The point of the exercise is not to summarize a paper. It is to get to the stage
+where you could defend it: to know what the authors actually did, why the
+architecture they chose was the right one for the problem, what the paper
+establishes and what it merely asserts, and --- above all --- what happens when
+you try to run it yourself. The implementation is where most of the learning
+happens, and it is weighted accordingly.
+
+\section*{Groups and Schedule}
+
+The class splits into \textbf{five groups}. Presentations run from
+\textbf{Week 3 through Week 7}, one group per session, at the start of class.
+Each group is assigned a topic, which is lectured \emph{before} the
+presentation, so you present on material the room has already seen.
+
+Groups 1--5 fill the five sessions. If enrollment produces a \textbf{sixth or
+seventh group}, those take the optional slots and double up with an existing
+session --- two talks that week. Both optional topics are lectured well before
+their slot, so those groups have the longest run-up of anyone.
+
+\begin{center}
+\begin{tabular}{@{}llp{5.6cm}c@{}}
+\toprule
+\textbf{Group} & \textbf{Presents} & \textbf{Topic} & \textbf{Lectured} \\
+\midrule
+Group 1 & Week 3 & Theoretical Foundations and the Virtue of Complexity & Week 1 \\
+Group 2 & Week 4 & Transformers                                         & Week 2 \\
+Group 3 & Week 5 & Meta-Learning and Regime Shifts                      & Week 3 \\
+Group 4 & Week 6 & Deep Factor Models                                   & Week 4 \\
+Group 5 & Week 7 & Generative Adversarial Networks                      & Week 4 \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Optional --- run only if enrollment produces a sixth or seventh group:}} \\
+Group 6 & Week 6 & Diffusion Models                                     & Week 5 \\
+Group 7 & Week 7 & Neural ODEs and Neural Point Processes               & Week 3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Two topics are deliberately left uncovered. \textbf{Graph Neural Networks}
+(Week 6) and \textbf{Bayesian Deep Networks for Factor Modeling} (Week 7) are
+lectured too late in the term to leave a group a reasonable gap between the
+lecture and its presentation slot. Both are lectured in the normal way; they
+simply carry no presentation.
+
+Group size depends on enrollment --- expect three to five students per group.
+\textbf{Every member presents.} A group that sends one person to the front
+while the rest sit down will be marked accordingly.
+
+\section*{Choosing a Paper}
+
+You have two routes:
+
+\begin{enumerate}
+  \item \textbf{Pick from the list} in the final section of this document. The
+    PDFs are in \texttt{Assignments/papers/} in the course repository, with the
+    exception noted there.
+  \item \textbf{Propose your own.} Any paper is fair game provided it is a
+    genuine research paper (peer-reviewed, or a serious preprint), it sits
+    squarely within your group's topic, and \textbf{I approve it}. Email me the
+    citation and a two-or-three sentence case for it. I am happy to approve
+    papers that are not on my list --- a paper you are actually curious about
+    will produce a better presentation than one you were handed. What I will
+    turn down is a paper with no implementable core, a survey, or something so
+    far from the topic that the rest of the class gains nothing.
+\end{enumerate}
+
+\noindent
+\textbf{No two groups may present the same paper.} Choices are first-come,
+first-served, so claim yours early.
+
+\subsection*{Deadlines for selection}
+
+\begin{itemize}
+  \item \textbf{End of Week 1:} group rosters finalized and emailed to me.
+  \item \textbf{End of Week 2:} paper choice submitted (or proposal approved).
+    Group 1 should settle both as early in Week 1 as possible, since they
+    present in Week 3.
+\end{itemize}
+
+\section*{Deliverable 1 --- The Presentation (10--15 minutes)}
+
+Ten to fifteen minutes is short. It is not enough time to walk through a paper
+section by section, and you should not try. Decide what the paper's one real
+idea is and spend your time there. A rough shape that works:
+
+\begin{itemize}
+  \item \textbf{The problem (1--2 min).} What financial question is at stake,
+    and why do the standard tools fail at it? Motivate it in the language of
+    finance, not of machine learning.
+  \item \textbf{The method (4--6 min).} The architecture and the objective.
+    Write down the loss. Be precise about what is learned, what is fixed, and
+    what the inputs and outputs actually are. If the paper's contribution is a
+    modification of a standard architecture, make the modification visible.
+  \item \textbf{The results (2--3 min).} The one or two tables or figures that
+    carry the paper's claim. What is the baseline, and is it a fair one?
+  \item \textbf{Your implementation (3--4 min).} What you built, what you
+    reproduced, what you could not, and what you learned from the gap. This
+    section is often the most interesting part of the talk --- do not let it
+    get squeezed out.
+  \item \textbf{Your critique (1--2 min).} Where is the paper vulnerable?
+    Look-ahead bias, transaction costs, a suspiciously favorable sample
+    period, a baseline chosen to lose, hyperparameters tuned on test data. Most
+    papers have a soft spot. Finding it is a skill this course is trying to
+    teach you.
+\end{itemize}
+
+\noindent
+Expect questions, from me and from the class. Budget for them: aim your
+prepared content at the lower end of the window. Slides in any format; send
+them to me \textbf{24 hours before} your session.
+
+\section*{Deliverable 2 --- The GitHub Repository}
+
+Submit a link to a GitHub repository (public, or private with me added as a
+collaborator) that implements the paper or a segment of it.
+
+\subsection*{Scope: depth over breadth}
+
+\textbf{You are not expected to reproduce a whole paper.} A faithful
+implementation of one mechanism, evaluated honestly on a small universe, is
+worth far more than a sprawling half-working attempt at everything. Legitimate
+ways to cut scope:
+
+\begin{itemize}
+  \item One asset class, or one market, instead of the paper's full cross-section.
+  \item A shorter sample period, or a smaller universe (e.g.\ 50--100 names).
+  \item A reduced model --- fewer layers, smaller hidden dimension, fewer
+    random features --- as long as the mechanism under study survives the cut.
+  \item Simulated data where the paper's proprietary data is unobtainable. If
+    the paper uses TAQ or CRSP and you cannot get it, build a simulator whose
+    stylized facts you can state, and say clearly what that substitution costs
+    you.
+\end{itemize}
+
+\noindent
+State your scope decisions in the README. A clearly reasoned reduction is a
+sign of judgment, not a shortfall. What is \emph{not} acceptable is cloning the
+authors' repository and running it --- if an official implementation exists,
+you may read it and should cite it, but the code you submit must be code you
+wrote and understand.
+
+\subsection*{What the repository must contain}
+
+\begin{itemize}
+  \item \textbf{A README} that states: the full citation of the paper; what you
+    implemented and what you deliberately left out; how to install and run it;
+    and what you found. Someone landing on the repo cold should understand the
+    project in two minutes.
+  \item \textbf{Reproducibility.} A \texttt{requirements.txt} or environment
+    file, fixed random seeds, and a single documented entry point --- a script
+    or a driver notebook --- that regenerates your headline result. I will try
+    to run it.
+  \item \textbf{Structure.} Reusable logic in modules; notebooks for narrative
+    and figures. Not one 2{,}000-line notebook.
+  \item \textbf{At least one figure or table} that either reproduces a result
+    from the paper or is the honest analogue of one under your reduced scope,
+    placed side by side with the paper's number where a comparison is possible.
+  \item \textbf{Data handling.} Commit a small sample or a fetch script. Do not
+    commit large vendor extracts.
+  \item \textbf{A ``what didn't work'' section.} Required, not optional. The
+    thing you could not get to train, the result that came out backwards, the
+    number you cannot reconcile with the paper. Write it down. A repository
+    reporting a failed reproduction with a clear account of the failure scores
+    well; one quietly reporting success it did not achieve does not.
+  \item \textbf{An AI usage note} (see below).
+\end{itemize}
+
+\noindent
+\textbf{Due:} repository link emailed 24 hours before your session, with a
+tagged commit (e.g.\ \texttt{v1.0}) marking what you are submitting. You are
+welcome to keep working on it afterwards --- I grade the tag.
+
+\section*{On Coding Agents and LLMs}
+
+\textbf{Use them. Heavily. This is encouraged, not merely tolerated.}
+
+Coding agents --- Claude Code, Codex, Cursor, and whatever has shipped by the
+time you read this --- are now part of how quantitative research is actually
+done, and you are expected to be fluent with them. Use an agent to scaffold
+your repository, to port an equation into a working module, to write the
+backtest harness, to track down the bug that has eaten your afternoon. There is
+no credit here for doing by hand what a tool does better.
+
+Likewise, \textbf{use LLMs to demystify the hard parts.} These are difficult
+papers, often assuming machinery you have not met. When a paper asserts an
+identity and moves on, ask. Ask for the derivation in smaller steps; ask for
+the toy two-dimensional version of the construction; ask why the authors chose
+this estimator over the obvious alternative; ask it to re-explain the same
+object three different ways until one lands. Used this way, an LLM is the
+patient co-reader that makes a hard paper tractable. I would rather you
+attempted an ambitious paper with heavy LLM support than a safe one unaided.
+
+Three conditions, and they are firm:
+
+\begin{enumerate}
+  \item \textbf{You own what you submit.} Anything in your repository or your
+    slides, you can explain and defend on the spot. I will ask about specific
+    lines. ``The agent wrote that'' is not an answer, and it is the one failure
+    mode that this assignment is designed to expose. The implementation
+    deliverable exists precisely because understanding survives it and
+    cut-and-paste does not.
+  \item \textbf{Verify everything.} Agents and LLMs produce confident,
+    plausible, wrong output --- fabricated citations, subtly incorrect
+    derivations, backtests with look-ahead baked in. Check the math against the
+    paper. Check that your train/test split is what you think it is. A
+    hallucinated result presented as the paper's is a serious error, and
+    ``the model told me'' does not reduce your responsibility for it.
+  \item \textbf{Disclose it.} Include a short \texttt{AI\_USAGE.md} (or a
+    README section) describing which tools you used and for what --- a
+    paragraph is plenty. This is not a penalty; nothing in your grade turns on
+    how much you used them. It is professional practice, and it mirrors the
+    disclosure in this repository's own README.
+  \item \textbf{Do not let an agent write your talk.} Slides generated
+    wholesale read exactly as such. The synthesis --- deciding what the
+    paper's one real idea is, and what to cut --- is the part of this
+    assignment that is yours.
+\end{enumerate}
+
+\section*{Grading}
+
+\begin{center}
+\begin{tabular}{@{}p{7.4cm}c@{}}
+\toprule
+\textbf{Component} & \textbf{Weight} \\
+\midrule
+Implementation --- correctness, reproducibility, and honesty of the repository & 40\% \\
+Technical command of the paper --- the method explained precisely and correctly & 25\% \\
+Presentation --- structure, clarity, use of the time, and handling of questions & 20\% \\
+Critical assessment --- identifying the paper's real weaknesses & 15\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+As with the final project, \textbf{reproducing the paper's headline number is
+not required for a strong grade.} Rigor, a correct account of the method, and a
+clear-eyed explanation of why your results do or do not match carry more weight
+than a matching Sharpe ratio. Groups are graded jointly, with an individual
+adjustment where one member's contribution is plainly out of line with the rest.
+
+\section*{Paper List}
+
+\subsection*{Group 1 --- Theoretical Foundations and the Virtue of Complexity}
+
+\begin{itemize}
+  \item Bryan Kelly, Semyon Malamud, Kangying Zhou (2022) \paper{The Virtue of
+    Complexity Everywhere}{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4166368},
+    SSRN Working Paper 4166368. \emph{Not bundled --- download requires a free
+    SSRN account.}
+\end{itemize}
+
+\subsection*{Group 2 --- Transformers}
+
+\begin{itemize}
+  \item Elliot L. Epstein, Rose Wang, Jaewon Choi, Markus
+    Pelger (2025) \paper{Attention Factors for Statistical
+    Arbitrage}{https://arxiv.org/pdf/2510.11616}.
+\end{itemize}
+
+\subsection*{Group 3 --- Meta-Learning and Regime Shifts}
+
+\begin{itemize}
+  \item Yicheng Wang, Sandro Claudio Lera (2025) \paper{Meta-Learning for
+    Return Prediction in Shifting Market
+    Regimes}{https://doi.org/10.1016/j.finmar.2025.101042}, Journal of
+    Financial Markets, 101042.
+\end{itemize}
+
+\subsection*{Group 4 --- Deep Factor Models}
+
+\begin{itemize}
+  \item Yitong Duan, Lei Wang, Qizhong Zhang, Jian Li (2022)
+    \paper{FactorVAE: A Probabilistic Dynamic Factor Model Based on Variational
+    Autoencoder for Predicting Cross-Sectional Stock
+    Returns}{https://doi.org/10.1609/aaai.v36i4.20369}, AAAI 36(4), 4468--4476.
+\end{itemize}
+
+\subsection*{Group 5 --- Generative Adversarial Networks}
+
+\begin{itemize}
+  \item Adil Rengim Cetingoz, Charles-Albert Lehalle (2025)
+    \paper{Synthetic Data for Portfolios: A Throw of the Dice Will Never Abolish
+    Chance}{https://arxiv.org/pdf/2501.03993}.
+\end{itemize}
+
+\subsection*{Group 6 (optional) --- Diffusion Models}
+
+\begin{itemize}
+  \item Zhuohan Wang, Carmine Ventre (2024) \paper{A
+    Financial Time Series Denoiser Based on Diffusion
+    Models}{https://doi.org/10.1145/3677052.3698649}, ICAIF.
+\end{itemize}
+
+\subsection*{Group 7 (optional) --- Neural ODEs and Neural Point Processes}
+
+\begin{itemize}
+  \item Jingsui Li, Wei Zhu, Zhang Chen, Chao Pei (2023)
+    \paper{Financial Time Series Prediction via Neural Ordinary Differential
+    Equations Approach}{https://doi.org/10.1109/CSIS-IAC60628.2023.10364112},
+    CSIS-IAC.
+\end{itemize}
+
+\vspace{1em}
+\noindent
+Questions, paper proposals, and scope negotiations --- come early rather than
+late, particularly about scope:
+
+\begin{center}
+\texttt{oualid.missaoui@baruch.cuny.edu} \quad or during office hours.
+\end{center}
+
+\end{document}
